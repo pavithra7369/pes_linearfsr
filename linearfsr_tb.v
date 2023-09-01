@@ -1,16 +1,16 @@
-module iiitb_lfsr_tb;
+module pes_lfsr_tb;
 reg clk;
 reg rst;
 reg [3:0] seed;
 reg load;
 wire q;
-iiitb_lfsr L(q, clk, rst, seed, load);
+pes_lfsr L(q, clk, rst, seed, load);
 // initialization
 // apply reset pulse
 initial
 begin
-  $dumpfile ("iiitb_lfsr.vcd"); 
-  $dumpvars(0,iiitb_lfsr_tb);
+  $dumpfile ("pes_lfsr.vcd"); 
+  $dumpvars(0,pes_lfsr_tb);
 clk = 0;
 load = 0;
 seed = 0;

@@ -1,4 +1,4 @@
-module iiitb_lfsr(q, clk, rst, seed, load);
+module pes_lfsr(q, clk, rst, seed, load);
   wire _00_;
   wire _01_;
   wire _02_;

@@ -21,11 +21,17 @@ LFSRs (linear feedback shift registers) provide a simple means for generating no
 > sudo apt-get install gtkwave 
 
 ## Executing the project
+
 > git clone
+
 > cd pes_linearfsr
+
 > iverilog pes_linearfsr.v pes_linearfsr_tb.v -o pes_linearfsr
+
 > ./pes_linearfsr
+
 > gtkwave pes_linearfsr.vcd
+
 ![image](https://github.com/pavithra7369/pes_linearfsr/assets/143084423/563738cd-0e93-421b-b59c-4fca7006f75f)
 
 ## Gate level synthesis(GLS)
@@ -35,20 +41,30 @@ LFSRs (linear feedback shift registers) provide a simple means for generating no
 
 * Go to the directory where verilog file is present and open terminal
 * invoke Yosys
+  
   > yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+  
   > yosys> read_verilog pes_linearfsr.v
+  
   > yosys> synth -top pes_linearfsr
+  
   > abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+  
   > yosys>flatten
+  
   > yosys> show
+  
   > yosys> write_verilog -noattr pes_linearfsr_net.v
 
 ## Synthesized circuit
 ![WhatsApp Image 2023-10-16 at 18 49 47_5b6ba7e7](https://github.com/pavithra7369/pes_linearfsr/assets/143084423/8237153b-2a53-4ca3-98e4-06433644d866)
 
 * Invoke GLS
+  
 >  iverilog ../verilog_model/primitives.v ../verilog_model/sky130_fd_sc_hd.v pes_linearfsr_net.v pes_linearfsr_tb.v
+
 > ./a.out
+
 >  gtkwave pes_linearfsr_tb.vcd
 
 * Gate level simulation

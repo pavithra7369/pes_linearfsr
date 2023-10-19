@@ -41,7 +41,7 @@ LFSRs (linear feedback shift registers) provide a simple means for generating no
 
 * Go to the directory where verilog file is present and open terminal
 * invoke Yosys
-  
+
   > yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
   
   > yosys> read_verilog pes_linearfsr.v
@@ -56,6 +56,19 @@ LFSRs (linear feedback shift registers) provide a simple means for generating no
   
   > yosys> write_verilog -noattr pes_linearfsr_net.v
 
+![WhatsApp Image 2023-10-16 at 18 49 41_179ec20a](https://github.com/pavithra7369/pes_linearfsr/assets/143084423/b056b16b-b5db-4629-8baa-487dd812e2a6)
+
+![WhatsApp Image 2023-10-16 at 18 49 41_56b0915e](https://github.com/pavithra7369/pes_linearfsr/assets/143084423/e96e1da0-608c-4481-8ae5-38c8aff2cb5c)
+
+![WhatsApp Image 2023-10-16 at 18 49 41_4a2b3df0](https://github.com/pavithra7369/pes_linearfsr/assets/143084423/a700b503-6042-4fcf-ad7a-726dee067dcd)
+
+![WhatsApp Image 2023-10-16 at 18 49 41_9cfd07d5](https://github.com/pavithra7369/pes_linearfsr/assets/143084423/3c16fbbd-c83d-4e8d-8c2e-daae660c0115)
+
+![WhatsApp Image 2023-10-16 at 18 49 41_a43966c4](https://github.com/pavithra7369/pes_linearfsr/assets/143084423/2933d04b-473c-4d6d-b0f5-ac31bb8c5791)
+
+![WhatsApp Image 2023-10-16 at 18 49 41_00717bcf](https://github.com/pavithra7369/pes_linearfsr/assets/143084423/c8355774-e82d-4237-b2f6-9504b08c992a)
+
+
 ## Synthesized circuit
 ![WhatsApp Image 2023-10-16 at 18 49 47_5b6ba7e7](https://github.com/pavithra7369/pes_linearfsr/assets/143084423/8237153b-2a53-4ca3-98e4-06433644d866)
 
@@ -66,6 +79,9 @@ LFSRs (linear feedback shift registers) provide a simple means for generating no
 > ./a.out
 
 >  gtkwave pes_linearfsr_tb.vcd
+
+![WhatsApp Image 2023-10-16 at 18 49 41_28b8f2dd](https://github.com/pavithra7369/pes_linearfsr/assets/143084423/f168b017-54e1-4383-9cd7-4894f1866c43)
+
 
 * Gate level simulation
   ![image](https://github.com/pavithra7369/pes_linearfsr/assets/143084423/db13907e-9e5b-4496-ba6c-2ae025fc3f7e)

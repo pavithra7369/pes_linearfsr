@@ -211,21 +211,28 @@ The above command should display a message  under 'Example Output' in https://hu
   > ./flow.tcl -inreractive
   
   > prep -design pes_linearfsr
-  
+
+  ![WhatsApp Image 2023-11-02 at 20 03 49_684527b8](https://github.com/pavithra7369/pes_linearfsr/assets/143084423/7ce1e5d0-cc07-4e0c-a68e-c91cbc00eeb9)
+
   > run_synthesis
   
+  ![WhatsApp Image 2023-11-02 at 20 03 47_fd192fa8](https://github.com/pavithra7369/pes_linearfsr/assets/143084423/6a16c944-d4ad-4d58-a790-e83d188f1531)
+
   > run_floorplan
-  
+
   > run_placement
   
   > run_cts
   
+  ![WhatsApp Image 2023-11-02 at 20 03 46_05cb9cc9](https://github.com/pavithra7369/pes_linearfsr/assets/143084423/6fd6f291-5d38-4654-ac72-de4391c4cfcd)
+
   > run_routing
 
   to run rtl to gds
   
   > ./flow.tcl -design pes_linearfsr -init_design_config -add_to_designs
 
- 
+ ![WhatsApp Image 2023-11-02 at 20 19 41_477caae0](https://github.com/pavithra7369/pes_linearfsr/assets/143084423/c5f4f075-d8ba-4ba4-82c1-3c06d1572f7c)
+
   
 

@@ -168,7 +168,7 @@ Go to home directory and type the following commands
 
 > sudo reboot 
 
-# After reboot run 
+### After reboot run 
 
 > docker run hello-world 
 
@@ -215,9 +215,48 @@ The above command should display a message  under 'Example Output' in https://hu
   ![WhatsApp Image 2023-11-02 at 20 03 49_684527b8](https://github.com/pavithra7369/pes_linearfsr/assets/143084423/7ce1e5d0-cc07-4e0c-a68e-c91cbc00eeb9)
 
   > run_synthesis
+
+  61. Printing statistics.
+
+=== pes_linearfsr ===
+
+   Number of wires:                 21
+  
+   Number of wire bits:             24
+  
+   Number of public wires:          13
+  
+   Number of public wire bits:      16
+  
+   Number of memories:               0
+  
+   Number of memory bits:            0
+  
+   Number of processes:              0
+  
+   Number of cells:                 17
+    
+  sky130_fd_sc_hd__buf_1          4
+    
+  sky130_fd_sc_hd__dfrtp_2        4
+  
+  sky130_fd_sc_hd__inv_2          4
+     
+  sky130_fd_sc_hd__mux2_2         4
+   
+  sky130_fd_sc_hd__xor2_2         1
+
+   Chip area for module '\pes_linearfsr': 196.438400
+
+* flop ratio= 4/17 =0.2352
   
   ![WhatsApp Image 2023-11-02 at 20 03 47_fd192fa8](https://github.com/pavithra7369/pes_linearfsr/assets/143084423/6a16c944-d4ad-4d58-a790-e83d188f1531)
+  
+  > magic -T /home/pavithra/Desktop/sky130A.tech lef read ../../tmp/merged.nom.lef def read pes_linearfsr.def &
 
+ ![image](https://github.com/pavithra7369/pes_linearfsr/assets/143084423/5fbe27f3-2999-4a12-90d9-81a4dec096d8)
+
+ 
   > run_floorplan
 
   > run_placement
@@ -226,13 +265,224 @@ The above command should display a message  under 'Example Output' in https://hu
   
   ![WhatsApp Image 2023-11-02 at 20 03 46_05cb9cc9](https://github.com/pavithra7369/pes_linearfsr/assets/143084423/6fd6f291-5d38-4654-ac72-de4391c4cfcd)
 
-  > run_routing
+    ===========================================================================
+    report_checks -unconstrained
+    ===========================================================================
+    ======================= Typical Corner ===================================
 
-  to run rtl to gds
+    Startpoint: rst (input port clocked by clk)
+    Endpoint: _23_ (recovery check against rising-edge clock clk)
+    Path Group: asynchronous
+    Path Type: max
+
+    Fanout     Cap    Slew   Delay    Time   Description
+    -----------------------------------------------------------------------------
+                  0.15    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          2.00    2.00 v input external delay
+     1    0.00    0.01    0.00    2.00 v rst (in)
+                                         rst (net)
+                  0.01    0.00    2.00 v input2/A (sky130_fd_sc_hd__clkbuf_4)
+     4    0.04    0.09    0.18    2.18 v input2/X (sky130_fd_sc_hd__clkbuf_4)
+                                         net2 (net)
+                  0.09    0.01    2.19 v _19_/A (sky130_fd_sc_hd__inv_2)
+     1    0.00    0.04    0.06    2.25 ^ _19_/Y (sky130_fd_sc_hd__inv_2)
+                                         _02_ (net)
+                  0.04    0.00    2.25 ^ _23_/RESET_B (sky130_fd_sc_hd__dfrtp_2)
+                                  2.25   data arrival time
+
+                  0.15   10.00   10.00   clock clk (rise edge)
+                          0.00   10.00   clock network delay (ideal)
+                         -0.25    9.75   clock uncertainty
+                          0.00    9.75   clock reconvergence pessimism
+                                  9.75 ^ _23_/CLK (sky130_fd_sc_hd__dfrtp_2)
+                          0.25   10.00   library recovery time
+                                 10.00   data required time
+-----------------------------------------------------------------------------
+                                 10.00   data required time
+                                 -2.25   data arrival time
+-----------------------------------------------------------------------------
+                                  7.75   slack (MET)
+
+
+    Startpoint: _23_ (rising edge-triggered flip-flop clocked by clk)
+    Endpoint: q (output port clocked by clk)
+    Path Group: clk
+    Path Type: max
+
+    Fanout     Cap    Slew   Delay    Time   Description
+    -----------------------------------------------------------------------------
+                  0.15    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.15    0.00    0.00 ^ _23_/CLK (sky130_fd_sc_hd__dfrtp_2)
+     2    0.02    0.08    0.49    0.49 v _23_/Q (sky130_fd_sc_hd__dfrtp_2)
+                                         F[2].q (net)
+                  0.08    0.00    0.49 v _10_/A (sky130_fd_sc_hd__xor2_4)
+     2    0.02    0.21    0.26    0.75 ^ _10_/X (sky130_fd_sc_hd__xor2_4)
+                                         net7 (net)
+                  0.21    0.00    0.75 ^ output7/A (sky130_fd_sc_hd__buf_2)
+     1    0.03    0.17    0.26    1.02 ^ output7/X (sky130_fd_sc_hd__buf_2)
+                                         q (net)
+                  0.17    0.00    1.02 ^ q (out)
+                                  1.02   data arrival time
+
+                  0.15   10.00   10.00   clock clk (rise edge)
+                          0.00   10.00   clock network delay (ideal)
+                         -0.25    9.75   clock uncertainty
+                          0.00    9.75   clock reconvergence pessimism
+                         -2.00    7.75   output external delay
+                                  7.75   data required time
+-----------------------------------------------------------------------------
+                                  7.75   data required time
+                                 -1.02   data arrival time
+-----------------------------------------------------------------------------
+                                  6.73   slack (MET)
+
+
+
+
+    ===========================================================================
+    report_checks --slack_max -0.01
+    ============================================================================
+    ======================= Typical Corner ===================================
+
+    No paths found.
+
+
+    ===========================================================================
+    report_check_types -max_slew -max_cap -max_fanout -violators
+    ============================================================================
+    ======================= Typical Corner ===================================
+
+
+    max slew violations count Typical: 0
+    max fanout violations count Typical: 0
+    max cap violations count Typical: 0
+
+    ===========================================================================
+    report_parasitic_annotation -report_unannotated
+    ============================================================================
+    Found 34 unannotated drivers.
+    clk
+    load
+    rst
+    seed[0]
+    seed[1]
+    seed[2]
+    seed[3]
+    _08_/X
+    _09_/X
+    _10_/X
+    _11_/X
+    _12_/X
+    _13_/X
+    _14_/X
+    _15_/X
+    _16_/X
+    _17_/Y
+    _18_/Y
+    _19_/Y
+    _20_/Y
+    _21_/Q
+    _22_/Q
+    _23_/Q
+    _24_/Q
+    clkbuf_0_clk/X
+    clkbuf_1_0__f_clk/X
+    clkbuf_1_1__f_clk/X
+    input1/X
+    input2/X
+    input3/X
+    input4/X
+    input5/X
+    input6/X
+    output7/X
+    Found 0 partially unannotated drivers.
+
+    ===========================================================================
+    max slew violation count 0
+    max fanout violation count 0
+    max cap violation count 0
+    ============================================================================
+
+    ===========================================================================
+    check_setup -verbose -unconstrained_endpoints -multiple_clock -no_clock -no_input_delay -loops -generated_clocks
+    ===========================================================================
+
+
+> run_routing
+
+ skew report 
+
+![image](https://github.com/pavithra7369/pes_linearfsr/assets/143084423/2ff1d85b-cdeb-4177-accd-fb6c1d759ee9)
+
+power report
+
+![image](https://github.com/pavithra7369/pes_linearfsr/assets/143084423/21c140d7-792b-4c8e-ae9c-f94d081eca68)
+
+    Summary Report and Area Report
+    ===========================================================================
+    report_tns
+    ============================================================================
+    tns 0.00
+
+    ===========================================================================
+    report_wns
+    ============================================================================
+     wns 0.00
+
+    ===========================================================================
+    report_worst_slack -max (Setup)
+    ============================================================================
+    worst slack 6.87
+
+    ===========================================================================
+    report_worst_slack -min (Hold)
+    ============================================================================
+    worst slack 0.38
+
+
+
+### power
+    ===========================================================================
+    report_power
+    ============================================================================
+    ======================= Typical Corner ===================================
+
+    Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+    ----------------------------------------------------------------
+    Sequential             1.75e-05   1.29e-06   4.46e-11   1.88e-05  20.8%
+    Combinational          5.49e-05   1.64e-05   1.25e-09   7.13e-05  79.2%
+    Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+    Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+    ----------------------------------------------------------------
+    Total                  7.24e-05   1.77e-05   1.30e-09   9.00e-05 100.0%
+                          80.4%      19.6%       0.0%
+
+
+                          
+
+* note:- make sure there is > sky130.tech file
+  is present in desktop
+> magic -T /home/pavithra/Desktop/sky130A.tech lef read ../../tmp/merged.nom.lef def read pes_linearfsr.def &
+
+![image](https://github.com/pavithra7369/pes_linearfsr/assets/143084423/e0cb451b-0282-49de-8a68-018a35210bc6)
+
+ 
+to run rtl to gds
   
-  > ./flow.tcl -design pes_linearfsr -init_design_config -add_to_designs
+> ./flow.tcl -design pes_linearfsr -init_design_config -add_to_designs
 
  ![WhatsApp Image 2023-11-02 at 20 19 41_477caae0](https://github.com/pavithra7369/pes_linearfsr/assets/143084423/c5f4f075-d8ba-4ba4-82c1-3c06d1572f7c)
 
-  
+> Statistics
+
+Internal Power = 7.24e-05 W
+
+Switching Power =  1.77e-05 W
+
+Leakage Power =   1.30e-09  W
+
+Total Power =  9.00e-05 W
 

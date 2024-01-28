@@ -486,3 +486,13 @@ Leakage Power =   1.30e-09  W
 
 Total Power =  9.00e-05 W
 
+
+# Acknowlegedgements
+* Prof Mahesh Awati Associate professor, PES University
+  
+* Kunal Ghosh, Co-founder, VSD Corp. Pvt. Ltd.
+
+# Contact Information
+
+* Kunal Ghosh, Director, VSD Corp. Pvt. Ltd. (Email: kunalghosh@gmail.com)
+* Pavithra.A ,Student ,PES University (Email: pes2ug22ec804@pesu.pes.edu) 
